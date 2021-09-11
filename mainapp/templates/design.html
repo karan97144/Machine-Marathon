@@ -1,0 +1,121 @@
+{% extends 'fileupload.html' %}
+    {% block content %}
+            {% load static %}
+            {% if something %}
+                <div class="alert alert-secondary mt-4" role="alert">
+                    The Accuracy of your model is <strong>{{ sm }}%</strong>.
+                </div>
+                <img src="{% static '/plots/SLR/SLR.png' %}" class="rounded mx-auto d-block mb-2" alt="Simple Linear Regression">
+                <div class="container">
+                    <form method="GET">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" placeholder="Enter The Value of X" aria-label="default input example" name="inputvalue">
+                        <input class="form-control mb-3" type="text" placeholder="1" name="no" value="1" hidden>
+                        <div class="alert alert-secondary mt-4" role="alert">
+                            
+                        </div>
+                        <div class="col-md-8 offset-md-3">
+                            <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                            <a type="reset" class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                        </div>   
+                    </form>
+                </div>
+            {% elif someinner %}
+            
+                <img src="{% static '/plots/SLR/SLR.png' %}" class="rounded mx-auto d-block mb-2" alt="Logistic Regression"> 
+                <form>
+                    <label for="inputvalue">Prediction:</label>
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of X" aria-label="default input example" name="inputvalue">
+                    <input class="form-control mb-3" type="text" placeholder="1" name="no" value="1" hidden>
+                    <div class="alert alert-secondary mt-4" role="alert">
+                        Predicted value is <strong>{{ si }}</strong>.
+                    </div>
+                    <div class="col-md-8 offset-md-3">
+                        <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                        <a type="reset" class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                    </div>   
+                </form>
+                <!-- <div class="alert alert-secondary mt-4" role="alert">
+                    Predicted value is {{ si }}
+                </div> -->
+<!-- classification  -->
+            {% elif something2 %}
+                <div class="alert alert-secondary mt-4" role="alert">
+                    The Acuracy of your model is <strong>{{ score}}%</strong>.
+                </div>
+                <div class="alert alert-secondary mt-4" role="alert">
+                    Total numbers of Data are <strong>{{ total }}</strong>, Correct Predicted data are <strong>{{ cp }}</strong> and Wrong predicted data <strong>{{ wd }}</strong>.
+                </div>
+                <img src="{% static '/plots/SLR/LR.png' %}" class="rounded mx-auto d-block mb-2" alt="Logistic Regression"> 
+                <form>
+                    <label for="inputvalue">Prediction:</label>
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 1" aria-label="default input example" name="inputvalue">
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 2" aria-label="default input example" name="inputvalue2">
+                    <input class="form-control mb-3" type="text" placeholder="2" name="no" value="2" hidden >
+                    
+                    <div class="col-md-8 offset-md-3">
+                        <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                        <a class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                    </div>   
+                </form>
+            {% elif lrsomething %}      
+                <img src="{% static '/plots/SLR/LR.png' %}" class="rounded mx-auto d-block mb-2" alt="Logistic Regression">
+                <form>
+                    <label for="inputvalue">Prediction:</label>
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 1" aria-label="default input example" name="inputvalue">
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 2" aria-label="default input example" name="inputvalue2">
+                    <input class="form-control mb-3" type="text" placeholder="2" name="no" value="2" hidden>
+                    <div class="alert alert-secondary mt-4" role="alert">
+                        Predicted value is <strong>{{ si }}</strong>.
+                    </div>
+                    
+                    <div class="col-md-8 offset-md-3">
+                        <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                        <a class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                    </div>   
+                </form>
+            {% elif rfsomething %}
+                <div class="alert alert-secondary mt-4" role="alert">
+                    The Acuracy of your model is <strong>{{ score}}%</strong>.
+                </div>
+                    <div class="alert alert-secondary mt-4" role="alert">
+                        Total numbers of Data are <strong>{{ total }}</strong>, Correct Predicted data are <strong>{{ cp }}</strong> and Wrong predicted data <strong>{{ wd }}</strong>.
+                    </div>
+                    <img src="{% static '/plots/SLR/RF.png' %}" class="rounded mx-auto d-block mb-2" alt="Random Forest Regression"> 
+                    <form>
+                        <label for="inputvalue">Prediction:</label>
+                        <input class="form-control mb-3" type="text" placeholder="Enter The Value of 1" aria-label="default input example" name="inputvalue">
+                        <input class="form-control mb-3" type="text" placeholder="Enter The Value of 2" aria-label="default input example" name="inputvalue2">
+                        <input class="form-control mb-3" type="text" placeholder="3" name="no" value="3" hidden>
+                        
+                        <div class="col-md-8 offset-md-3">
+                            <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                            <a class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                        </div>   
+                    </form>
+            {% elif rfsomething2 %}
+                <img src="{% static '/plots/SLR/RF.png' %}" class="rounded mx-auto d-block mb-2" alt="Random Forest Classification ">
+                <form>
+                    <label for="inputvalue">Prediction:</label>
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 1" aria-label="default input example" name="inputvalue">
+                    <input class="form-control mb-3" type="text" placeholder="Enter The Value of 2" aria-label="default input example" name="inputvalue2">
+                    <input class="form-control mb-3" type="text" placeholder="3" name="no" value="3" hidden>
+                    <div class="alert alert-secondary mt-4" role="alert">
+                        Predicted value is <strong>{{ si }}</strong>.
+                    </div>
+                    <div class="col-md-8 offset-md-3">
+                        <button type="submit" class="btn btn-success col-sm-4">Submit</button>
+                        <a class="btn btn-danger col-sm-4" href="/reset">Reset</a>
+                    </div>   
+                </form>
+
+            {% else %}
+                <div class="alert alert-secondary mt-4" role="alert">
+                    Please select your model!
+                    
+                </div>
+                <a class="btn btn-danger col-sm-4 mt-3 offset-4" href="/reset">Reset</a>
+            {% endif %}
+            
+        
+    {% endblock content %}

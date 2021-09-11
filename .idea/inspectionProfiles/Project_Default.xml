@@ -1,0 +1,22 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="keras.models.Sequential" />
+          <option value="keras.layers.normalization.BatchNormalization" />
+          <option value="keras.layers.convolutional.Conv2D" />
+          <option value="keras.layers.convolutional.MaxPooling2D" />
+          <option value="keras.layers.core.Activation" />
+          <option value="keras.layers.core.Flatten" />
+          <option value="keras.layers.core.*" />
+          <option value="keras.preprocessing.image.*" />
+          <option value="keras.optimizers.Adam" />
+          <option value="selenium.webdriver.common.keys.keys" />
+          <option value="webapi.urls.my_map" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
